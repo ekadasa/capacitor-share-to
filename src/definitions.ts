@@ -39,7 +39,6 @@ export interface ShareOptions {
 
   /**
    * This is option that don't exist in the official repository.
-   * Set a title for the share modal.
    * Send directly to another app if not empty. It will not open the share modal.
    * This option is only supported on Android.
    * 
