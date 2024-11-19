@@ -82,13 +82,13 @@ If option packageName provided, it will not show the share modal and will send t
 
 #### ShareOptions
 
-| Prop              | Type                  | Description                                                                                                                                                                                                         | Since |
-| ----------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`title`**       | <code>string</code>   | Set a title for any message. This will be the subject if sharing to email                                                                                                                                           | 1.0.0 |
-| **`text`**        | <code>string</code>   | Set some text to share                                                                                                                                                                                              | 1.0.0 |
-| **`url`**         | <code>string</code>   | Set a URL to share, can be http, https or file:// URL                                                                                                                                                               | 1.0.0 |
-| **`files`**       | <code>string[]</code> | Array of file:// URLs of the files to be shared. Only supported on iOS and Android.                                                                                                                                 | 4.1.0 |
-| **`dialogTitle`** | <code>string</code>   | Set a title for the share modal. This option is only supported on Android.                                                                                                                                          | 1.0.0 |
-| **`packageName`** | <code>string</code>   | This is option that don't exist in the official repository. Set a title for the share modal. Send directly to another app if not empty. It will not open the share modal. This option is only supported on Android. | 7.0.0 |
+| Prop              | Type                  | Description                                                                                                                                                                        | Since |
+| ----------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`title`**       | <code>string</code>   | Set a title for any message. This will be the subject if sharing to email                                                                                                          | 1.0.0 |
+| **`text`**        | <code>string</code>   | Set some text to share                                                                                                                                                             | 1.0.0 |
+| **`url`**         | <code>string</code>   | Set a URL to share, can be http, https or file:// URL                                                                                                                              | 1.0.0 |
+| **`files`**       | <code>string[]</code> | Array of file:// URLs of the files to be shared. Only supported on iOS and Android.                                                                                                | 4.1.0 |
+| **`dialogTitle`** | <code>string</code>   | Set a title for the share modal. This option is only supported on Android.                                                                                                         | 1.0.0 |
+| **`packageName`** | <code>string</code>   | This is option that don't exist in the official repository. Send directly to another app if not empty. It will not open the share modal. This option is only supported on Android. | 7.0.0 |
 
 </docgen-api>
