@@ -1,6 +1,6 @@
 # capacitor-share-to
 
-Copied from https://github.com/ionic-team/capacitor-plugins/tree/plugin/screen-orientation/share with modifications (except for the iOS code, as I have no knowledge of it).
+Copied from https://github.com/ionic-team/capacitor-plugins/tree/main/share with modifications (except for the iOS code, as I have no knowledge of it).
 
 
 I initially tried to fork the project, but encountered an error when building the Android version (something about a deprecated feature in Gradle 9). Since I have only basic knowledge of Java and no experience with native Android development, I decided to create my own copy due to the urgency of this modification.
