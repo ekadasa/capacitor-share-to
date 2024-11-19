@@ -8,13 +8,6 @@ I initially tried to fork the project, but encountered an error when building th
 The difference between this and the original repository is that this version includes a packageName in param options in the share method.
 
 
-## Install
-
-```bash
-npm install capacitor-share-to
-npx cap sync
-```
-
 ## API
 
 <docgen-index>
