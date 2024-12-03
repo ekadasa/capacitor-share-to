@@ -44,6 +44,7 @@
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
     "prepublishOnly": "npm run build",
+    "build_and_verify": "npm run build && npm run verify:android"
   },
   "devDependencies": {
     "@capacitor/android": "^6.0.0",
