@@ -6,8 +6,6 @@ Copied from https://github.com/ionic-team/capacitor-plugins/tree/main/share with
 I initially tried to fork the project, but encountered an error when building the Android version (something about a deprecated feature in Gradle 9). Since I have only basic knowledge of Java and no experience with native Android development, I decided to create my own copy due to the urgency of this modification.
 
 The difference between this and the original repository is that this version includes a packageName in param options in the share method.
-
-
 ## API
 
 <docgen-index>
