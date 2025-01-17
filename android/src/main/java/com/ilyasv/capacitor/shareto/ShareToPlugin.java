@@ -158,6 +158,8 @@ public class ShareToPlugin extends Plugin {
                     startActivityForResult(call, intent, "activityResult");
                 }
             } catch (Exception e) {
+                    stopped = true;
+                    isPresenting = false;
                     call.reject("Error on startActivityForResult ");
                     return;
             }
