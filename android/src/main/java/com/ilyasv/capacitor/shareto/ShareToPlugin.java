@@ -131,31 +131,35 @@ public class ShareToPlugin extends Plugin {
             if (files != null && files.length() != 0) {
                 shareFiles(files, intent, call);
             }
+            try {
+                if (packageName.isEmpty()) {
+                    int flags = PendingIntent.FLAG_UPDATE_CURRENT;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                        flags = flags | PendingIntent.FLAG_MUTABLE;
+                    }
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                        flags = flags | PendingIntent.FLAG_ALLOW_UNSAFE_IMPLICIT_INTENT;
+                    }
 
-            if (packageName.isEmpty()) {
-                int flags = PendingIntent.FLAG_UPDATE_CURRENT;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                    flags = flags | PendingIntent.FLAG_MUTABLE;
+                    // requestCode parameter is not used. Providing 0
+                    PendingIntent pi = PendingIntent.getBroadcast(getContext(), 0, new Intent(Intent.EXTRA_CHOSEN_COMPONENT), flags);
+                    Intent chooser = Intent.createChooser(intent, dialogTitle, pi.getIntentSender());
+                    chosenComponent = null;
+                    chooser.addCategory(Intent.CATEGORY_DEFAULT);
+                    stopped = false;
+                    isPresenting = true;
+                    startActivityForResult(call, chooser, "activityResult");
+
+                } else {
+                    intent.setPackage(packageName);
+                    chosenComponent = null;
+                    stopped = false;
+                    isPresenting = true;
+                    startActivityForResult(call, intent, "activityResult");
                 }
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-                    flags = flags | PendingIntent.FLAG_ALLOW_UNSAFE_IMPLICIT_INTENT;
-                }
-
-                // requestCode parameter is not used. Providing 0
-                PendingIntent pi = PendingIntent.getBroadcast(getContext(), 0, new Intent(Intent.EXTRA_CHOSEN_COMPONENT), flags);
-                Intent chooser = Intent.createChooser(intent, dialogTitle, pi.getIntentSender());
-                chosenComponent = null;
-                chooser.addCategory(Intent.CATEGORY_DEFAULT);
-                stopped = false;
-                isPresenting = true;
-                startActivityForResult(call, chooser, "activityResult");
-
-            } else {
-                intent.setPackage(packageName);
-                chosenComponent = null;
-                stopped = false;
-                isPresenting = true;
-                startActivityForResult(call, intent, "activityResult");
+            } catch (Exception e) {
+                    call.reject("Error on startActivityForResult ");
+                    return;
             }
 
         } else {
